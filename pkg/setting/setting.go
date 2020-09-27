@@ -39,16 +39,13 @@ type Server struct {
 
 var ServerSetting = &Server{}
 
-type Database struct {
-	Type        string
-	User        string
-	Password    string
-	Host        string
-	Name        string
-	TablePrefix string
+type MySQL struct {
+	LinkUrl string
+	ShowSQL bool
+	ShowDB  bool
 }
 
-var DatabaseSetting = &Database{}
+var MySQLSetting = &MySQL{}
 
 type Redis struct {
 	Host        string
@@ -72,7 +69,7 @@ func Setup() {
 
 	mapTo("app", AppSetting)
 	mapTo("server", ServerSetting)
-	mapTo("database", DatabaseSetting)
+	mapTo("mysql", MySQLSetting)
 	mapTo("redis", RedisSetting)
 
 	AppSetting.ImageMaxSize = AppSetting.ImageMaxSize * 1024 * 1024
