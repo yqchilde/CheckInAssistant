@@ -1,14 +1,21 @@
 package store
 
-import "CheckInAssistant/pkg/setting"
+import (
+	"CheckInAssistant/model"
+	"CheckInAssistant/pkg/setting"
+)
 
 var (
 	dbModels = []interface{}{
-		//new(),
+		new(model.User),
+		new(model.AppUpgrade),
+		new(model.Class),
+		new(model.ClassRoom),
+		new(model.Sign),
 	}
 )
 
-func InitStore(mysqlInit, redisInit bool) {
+func Setup(mysqlInit, redisInit bool) {
 	showSQL = setting.MySQLSetting.ShowSQL
 	syncDbModels = setting.MySQLSetting.ShowDB
 
@@ -23,6 +30,6 @@ func InitStore(mysqlInit, redisInit bool) {
 
 func Clear() {
 	if engine != nil {
-
+		_ = engine.Close()
 	}
 }

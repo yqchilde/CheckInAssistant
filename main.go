@@ -11,12 +11,14 @@ import (
 	"CheckInAssistant/pkg/setting"
 	"CheckInAssistant/pkg/util"
 	"CheckInAssistant/router"
+	"CheckInAssistant/store"
 )
 
 func init() {
 	setting.Setup()
 	logging.Setup()
 	util.Setup()
+	store.Setup(true, false)
 }
 
 func main() {
