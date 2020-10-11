@@ -11,6 +11,6 @@ type Sign struct {
 	SignTime  time.Time `json:"sign_time"`
 
 	CreatedAt time.Time `json:"created_at" xorm:"created"`
-	UpdatedAt time.Time `json:"updated_at" xorm:"updated"`
-	DeletedAt time.Time `json:"deleted_at" xorm:"deleted"`
+	UpdatedAt time.Time `json:"-" xorm:"updated"`
+	DeletedAt time.Time `json:"-" xorm:"deleted"`
 }
