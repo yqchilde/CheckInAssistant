@@ -15,6 +15,11 @@ var (
 	syncDbModels   = false
 )
 
+// GetDBTransaction return a new mysql db transaction
+func GetDBTransaction() *xorm.Session {
+	return engine.NewSession()
+}
+
 func initMySQL() {
 	var err error
 	engine, err = xorm.NewEngine("mysql", dataSourceName)

@@ -10,8 +10,11 @@ var (
 		new(model.User),
 		new(model.AppUpgrade),
 		new(model.Class),
+		new(model.Room),
 		new(model.ClassRoom),
-		new(model.Sign),
+		new(model.CheckIn),
+		new(model.CheckInItem),
+		new(model.Connection),
 	}
 )
 

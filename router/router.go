@@ -1,7 +1,6 @@
 package router
 
 import (
-	"CheckInAssistant/middleware/jwt"
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,24 +18,46 @@ func InitRouter() *gin.Engine {
 	//r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	//r.POST("/upload", api.UploadImage)
 
-	apiv1 := r.Group("/api/v1")
-	apiv1.Use(jwt.JWT())
+	userApi := r.Group("/user")
+	//userApi.Use(jwt.JWT())
 	{
+		userApi.POST("/login", UserLogin)
+		userApi.POST("/register", UserRegister)
+		userApi.PUT("/info", UpdateUserInfo)
+		userApi.GET("/info", GetUserInfo)
+	}
 
+	classApi := r.Group("/class")
+	{
+		classApi.POST("", CreateClass)
+		classApi.GET("/user/:userID", GetClassList)
+		classApi.PUT("/:classID", UpdateClass)
+		classApi.DELETE("/del/:classID", DeleteClass)
+		classApi.POST("/join", JoinClass)
+		classApi.DELETE("/out/:classID/user/:userID", OutClass)
+		classApi.GET("/users/:classID", GetClassUserList)
+	}
 
+	classRoomApi := r.Group("/classRoom")
+	{
+		classRoomApi.POST("", CreateClassRoom)
+		classRoomApi.GET("/user/:userID", GetClassRoomList)
+		classRoomApi.GET("/room/:roomID", GetClassRoomDetail)
+		classRoomApi.DELETE("/:roomID", DeleteClassRoom)
+	}
 
-		//获取标签列表
-		//apiv1.GET("/tags", v1.GetTags)
-		////新建标签
-		//apiv1.POST("/tags", v1.AddTag)
-		////更新指定标签
-		//apiv1.PUT("/tags/:id", v1.EditTag)
-		////删除指定标签
-		//apiv1.DELETE("/tags/:id", v1.DeleteTag)
-		////导出标签
-		//r.POST("/tags/export", v1.ExportTag)
-		////导入标签
-		//r.POST("/tags/import", v1.ImportTag)
+	checkInApi := r.Group("/checkIn")
+	{
+		checkInApi.POST("", CreateCheckIn)
+		checkInApi.GET("/detail/:checkInID/user/:userID", GetCheckInDetail)
+		checkInApi.GET("/user/:userID", GetCheckInList)
+		checkInApi.POST("/startCheckIn", UserCheckIn)
+		checkInApi.GET("/detail/:checkInID/checkUsers", GetCheckInAllUsers)
+	}
+
+	appApi := r.Group("/app")
+	{
+		appApi.GET("/share", GetShareUrl)
 	}
 
 	return r

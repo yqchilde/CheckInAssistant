@@ -1,5 +1,34 @@
 package model
 
+const (
+	RoleStudent = iota
+	RoleTeacher
+	RoleAdmin
+)
+
+const (
+	CheckInTypeCode = iota
+	CheckInTypeGPS
+)
+
+const (
+	TabTypeLeft  = "0"
+	TabTypeRight = "1"
+)
+
+const (
+	CheckInStatusProcessing = iota
+	CheckInStatusFinish
+	CheckInStatusEnd
+	CheckInStatusEndAndFinish
+	CheckInStatusNotInRange
+)
+
+const (
+	CheckInUserComplete = iota
+	CheckInUserUndone
+)
+
 // SearchPage is used for search option
 type SearchPage struct {
 	Page int
