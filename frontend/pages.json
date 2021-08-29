@@ -1,0 +1,133 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+        	"path": "pages/index/index",
+        	"style": {
+        	}
+        },
+        {
+            "path" : "pages/login/login",
+            "style" : {
+                "navigationBarTitleText": ""
+        	}
+        },
+		{
+            "path" : "pages/register/register",
+            "style" : {
+                "navigationBarTitleText": ""
+			}
+        },
+		{
+            "path" : "pages/me/me"
+        }
+        ,{
+            "path" : "pages/createRoom/createRoom",
+            "style" : {
+                "app-plus":{
+                    "titleNView":false,
+                    "scrollIndicator":"none"
+                }  
+            }
+        }
+        ,{
+            "path" : "pages/createClass/createClass",
+            "style" : {
+            }
+        }
+        ,{
+            "path" : "pages/classList/classList",
+            "style" : {
+                "onReachBottomDistance":150,
+                "app-plus":{
+                    
+                }
+            }
+        }
+        ,{
+            "path" : "pages/classPeopleList/classPeopleList",
+            "style" : {
+            }
+        }
+        ,{
+            "path" : "pages/roomList/roomList",
+            "style" : {
+                "app-plus":{
+                    "scrollIndicator":"none"
+                }
+            }
+        }
+        ,{
+            "path" : "pages/roomDetails/roomDetails",
+            "style" : {
+                "enablePullDownRefresh":true
+            }
+        }
+        ,{
+            "path" : "pages/signIn/signIn",
+            "style" : {
+                "navigationBarTextStyle":"white",
+                "app-plus":{
+                    "scrollIndicator":"none",
+                    "titleNView": {
+                    	"type": "transparent",
+                        "titleColor":"white",
+                        "backgroundColor":"#2692FF"
+                    }
+                }
+            }
+        }
+        ,{
+            "path" : "pages/signer/signer",
+            "style" : {
+                "navigationBarTextStyle":"white",
+                "app-plus":{
+                    "scrollIndicator":"none"
+                }  
+            }
+        }
+        ,{
+            "path" : "pages/record/record",
+            "style" : {
+            }
+        }
+        ,{
+            "path" : "pages/setup/setup",
+            "style" : {
+                "app-plus":{
+                    "scrollIndicator":"none"
+                } 
+            }
+        }
+        ,{
+            "path" : "pages/statistics/statistics",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/viewSign/viewSign",
+            "style" : {
+                "navigationBarTextStyle":"white",
+                "enablePullDownRefresh":true
+            }
+        }
+        ,{
+            "path" : "pages/set-help/set-help",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/getbackPwd/getbackPwd",
+            "style" : {
+                "navigationBarTextStyle":"white"
+            }
+        }
+    ],
+	"globalStyle": {
+        // #ifndef MP-WEIXIN
+        "scrollIndicator":"none",
+        // #endif
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#ffffff",
+        "navigationStyle":"custom"
+	}
+}
